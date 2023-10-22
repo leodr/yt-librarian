@@ -9,7 +9,7 @@
 You need an `OPENAI_API_KEY` environment variable, as that is used to parse and
 organize the metadata. You also need [`yt-dlp`](https://github.com/yt-dlp/yt-dlp#readme) and [`ffmpeg`](https://ffmpeg.org/download.html) installed.
 
-If you have that, all you have to do is `npx yt-librarian "&lt;url&gt;"` and
+If you have that, all you have to do is `npx yt-librarian "<url>"` and
 everything should work. You will get a correctly tagged mp3 file in your cwd.
 
 <br>
