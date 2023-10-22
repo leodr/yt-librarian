@@ -27,17 +27,18 @@ export async function parseMetadata(
       content: `# YouTube Video Information\n\nTitle: ${title}\nChannel: ${channelName}\nDescription: ${description}`,
     },
   ];
+
   const functions = [
     {
       name: "parse_metadata",
       description:
-        "Parse MP3 tags from the YouTube video title and description.",
+        "Parse MP3 metadata from the YouTube video title and description.",
       parameters: {
         type: "object",
         properties: {
           title: {
             description:
-              "The title of the track or mix, NOT the video title. Make sure it does not include the artists name or features.",
+              "The title of the track or mix, NOT the video title. Should not contain the artist name.",
             type: "string",
           },
           artists: {
@@ -79,6 +80,7 @@ export async function parseMetadata(
     messages,
     functions,
     function_call: { name: "parse_metadata" },
+    temperature: 0,
   });
 
   const metadataString = response.choices[0].message.function_call?.arguments;
