@@ -11,9 +11,11 @@ import { runCommand } from "./run-command";
 import { program } from "commander";
 
 program
-  .name("yt-audio-download")
-  .description("Downloads audio from YouTube and adds appropriate metadata.")
-  .version("0.0.1");
+  .name("yt-librarian")
+  .description(
+    "Download YouTube songs with automatic mp3 metadata and cover photos."
+  )
+  .version("0.1.0");
 
 type Ctx = {
   filepaths: VideoFilepaths;
