@@ -20,7 +20,8 @@
   ],
   "scripts": {
     "start": "ts-node src/main.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "commander": "^11.1.0",
