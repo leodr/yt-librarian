@@ -1,0 +1,27 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Extract release notes
+      id: extract-notes
+      run: |
+        NOTES=$(awk '/## $GITHUB_REF$/,/##/' RELEASE_NOTES.md | sed '1d;$d')
+        echo "::set-output name=notes::$NOTES"
+      shell: bash
+      
+    - name: Create GitHub release
+      run: |
+        gh release create $GITHUB_REF --title "$GITHUB_REF" --notes "$NOTES"
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NOTES: ${{ steps.extract-notes.outputs.notes }}
