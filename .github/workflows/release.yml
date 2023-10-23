@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
+    
 
 jobs:
   release:
@@ -15,7 +17,7 @@ jobs:
     - name: Extract release notes
       id: extract-notes
       run: |
-        NOTES=$(awk '/## $GITHUB_REF$/,/##/' RELEASE_NOTES.md | sed '1d;$d')
+        NOTES=$(awk '/## $GITHUB_REF$/,/##/' CHANGELOG.md | sed '1d;$d')
         echo "::set-output name=notes::$NOTES"
       shell: bash
       
