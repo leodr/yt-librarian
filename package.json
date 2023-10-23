@@ -1,6 +1,6 @@
 {
   "name": "yt-librarian",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Download YouTube songs with automatic mp3 metadata and cover photos.",
   "keywords": [
     "youtube",
