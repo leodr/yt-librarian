@@ -112,7 +112,7 @@ export async function parseMetadata(
   ];
 
   const response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: "gpt-4o-mini",
     messages,
     functions,
     function_call: { name: "store_metadata" },
